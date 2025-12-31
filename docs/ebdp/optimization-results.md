@@ -7,7 +7,7 @@ This document tracks the results of applying **Equation-Based DRY Prompting (EBD
 | File | Before (Chars) | Before (Lines) | After (Chars) | After (Lines) | Reduction (Chars) | Reduction (Lines) | Commit |
 |------|----------------|---------------|--------------|--------------|-------------------|------------------|--------|
 | [transcript-to-markdown.md](../../.cursor/prompts/markdown/transcript-to-markdown.md) | 13,892 | 267 | 3,514 | 95 | 74.7% | 64.4% | [79d223c](https://github.com/thehimel/cursor-rules-and-prompts/commit/79d223cbb924ded5d7bf729e6db2641214d69bdc) |
-| [course-structure-folder-hierarchy.md](../../.cursor/prompts/course-structure-folder-hierarchy.md) | - | 225 | - | 82 | - | 63.6% | - |
+| [course-structure-folder-hierarchy.md](../../.cursor/prompts/educational/course-structure-folder-hierarchy.md) | - | 225 | - | 82 | - | 63.6% | - |
 
 ## Notes
 
