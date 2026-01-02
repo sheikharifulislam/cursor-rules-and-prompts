@@ -6,7 +6,7 @@ description: Guidelines for converting transcripts into well-structured markdown
 
 # Transcript to Markdown Conversion Prompt
 
-Transform transcripts into well-structured markdown documents. **Transcript is PRIMARY source**. Additional resources (PDFs, images) only enhance transcript content, never add unrelated topics.
+Transform transcripts into well-structured markdown documents. **Transcript is PRIMARY source**. Additional resources (PDFs, images) only enhance transcript content, never add unrelated topics. **Always create SRT file** (mandatory output).
 
 ## Core Rules
 
@@ -16,8 +16,8 @@ Headers: `#` title, `##` sections, `###` subsections (newline after each). Lists
 ### Resources
 **Transcript** → determines topics to include. **Additional resources** → enhance transcript topics only (code examples, visual descriptions, definitions). **Image folders** (`assets`, `images`, `resources` at same level as output): OCR all images, sort by creation time, place chronologically in relevant sections using `![Alt](./assets/image.png)` with OCR-based alt text.
 
-### SRT File
-Location: Same directory as markdown. Naming: `transcript.srt` if markdown name is generic (`readme`, `index`), else `{markdown-name}.srt`. Format: Sequential numbers, `HH:MM:SS,mmm --> HH:MM:SS,mmm` timestamps, blank lines between entries. Save only if file doesn't exist.
+### SRT File (MANDATORY)
+**Always create SRT file** (required output). Location: same directory as markdown. Naming: `{markdown-name|transcript}.srt` (generic names → `transcript.srt`, else `{name}.srt`). Format: sequential numbers (start 1), `HH:MM:SS,mmm --> HH:MM:SS,mmm` timestamps, blank lines between entries. Extract timestamps/text from transcript. Check existence → create if missing, verify if exists.
 
 ## Required Sections
 
@@ -49,8 +49,8 @@ After Summary, before main content. Format: `## Exam Notes` with `### Topic` sub
 8. **Transform**: Remove timestamps, IDs, conversational elements
 9. **Format**: Apply markdown formatting, bold key terms
 10. **Review**: Verify summary format, exam notes separation, command tables properly categorized
-11. **Save SRT**: Determine filename, check existence, save if missing
-12. **Output**: Structured markdown with transcript as primary source
+11. **Create SRT File**: Apply **SRT File (MANDATORY)** rules → determine filename, check existence, create/verify with proper format
+12. **Output**: Structured markdown + SRT file (both required)
 
 ## Example Structure
 
@@ -97,4 +97,4 @@ Content...
 * [ ] Headers have newlines; no timestamps/IDs; conversational elements removed
 * [ ] Content organized logically; technical terms formatted; key terms bolded
 * [ ] Images (if any): OCR processed, chronologically ordered, placed appropriately, relative paths with alt text
-* [ ] SRT file saved (if missing) with correct naming and format
+* [ ] **SRT file created** - Apply **SRT File (MANDATORY)** rules: correct naming, format, location verified
