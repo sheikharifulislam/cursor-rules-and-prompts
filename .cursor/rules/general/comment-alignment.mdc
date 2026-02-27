@@ -1,0 +1,24 @@
+---
+id: rule-general-comment-alignment
+alwaysApply: false
+description: Align inline comments within blocks using longest-line + 2 spaces
+author: Himel Das
+---
+
+# Inline Comment Alignment
+
+## Process
+
+1. **Block** = consecutive lines with inline `#` comments
+2. **Longest** = max length (code before `#`, stripped) in block
+3. **Target** = longest + 2 spaces before `#`
+4. **Pad** shorter lines so `#` aligns at target column
+
+## Example
+
+```python
+def process():
+    result = [8]
+    result.insert(2, 0)  # [2, 4, 0, 6, ...]
+    return result        # [2, 4, 0, 6, ...]
+```
