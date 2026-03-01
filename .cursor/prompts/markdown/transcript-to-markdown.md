@@ -6,7 +6,7 @@ description: Guidelines for converting transcripts into well-structured markdown
 
 # Transcript to Markdown Conversion Prompt
 
-Transform transcripts into well-structured markdown documents. **Transcript is PRIMARY source**. Additional resources (PDFs, images) only enhance transcript content, never add unrelated topics. **Always create SRT file** (mandatory output).
+Transform transcripts into well-structured markdown documents. **Transcript is PRIMARY source**. Additional resources (PDFs, images) only enhance transcript content, never add unrelated topics. **Create SRT file** only when no transcript file (.srt, .vtt) already exists in the output directory.
 
 ## Core Rules
 
@@ -16,8 +16,11 @@ Headers: `#` title, `##` sections, `###` subsections (newline after each). Lists
 ### Resources
 **Transcript** → determines topics to include. **Additional resources** → enhance transcript topics only (code examples, visual descriptions, definitions). **Image folders** (`assets`, `images`, `resources` at same level as output): OCR all images, sort by creation time, place chronologically in relevant sections using `![Alt](./assets/image.png)` with OCR-based alt text.
 
-### SRT File (MANDATORY)
-**Always create SRT file** (required output). Location: same directory as markdown. Naming: `{markdown-name|transcript}.srt` (generic names → `transcript.srt`, else `{name}.srt`). Format: sequential numbers (start 1), `HH:MM:SS,mmm --> HH:MM:SS,mmm` timestamps, blank lines between entries. Extract timestamps/text from transcript. Check existence → create if missing, verify if exists.
+### SRT File
+
+**Skip if transcript already exists:** If any transcript file (`.srt`, `.vtt`) already exists in the output directory, do **not** create a new one—the transcript is already present.
+
+**Create only when missing:** If no transcript file exists, create SRT. Location: same directory as markdown. Naming: `{markdown-name|transcript}.srt` (generic names → `transcript.srt`, else `{name}.srt`). Format: sequential numbers (start 1), `HH:MM:SS,mmm --> HH:MM:SS,mmm` timestamps, blank lines between entries. Extract timestamps/text from transcript.
 
 ## Required Sections
 
@@ -49,8 +52,8 @@ After Summary, before main content. Format: `## Exam Notes` with `### Topic` sub
 8. **Transform**: Remove timestamps, IDs, conversational elements
 9. **Format**: Apply markdown formatting, bold key terms
 10. **Review**: Verify summary format, exam notes separation, command tables properly categorized
-11. **Create SRT File**: Apply **SRT File (MANDATORY)** rules → determine filename, check existence, create/verify with proper format
-12. **Output**: Structured markdown + SRT file (both required)
+11. **SRT File**: Check output directory for existing transcript files (`.srt`, `.vtt`). If none exist → create SRT per rules. If any exist → skip creation.
+12. **Output**: Structured markdown + SRT file (only when no transcript file already exists)
 
 ## Example Structure
 
@@ -97,4 +100,4 @@ Content...
 * [ ] Headers have newlines; no timestamps/IDs; conversational elements removed
 * [ ] Content organized logically; technical terms formatted; key terms bolded
 * [ ] Images (if any): OCR processed, chronologically ordered, placed appropriately, relative paths with alt text
-* [ ] **SRT file created** - Apply **SRT File (MANDATORY)** rules: correct naming, format, location verified
+* [ ] **SRT file**: If no `.srt`/`.vtt` exists in output directory → created with correct naming, format, location. If transcript already exists → skipped (no duplicate)
