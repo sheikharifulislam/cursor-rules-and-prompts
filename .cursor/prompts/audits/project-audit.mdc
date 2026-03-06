@@ -1,0 +1,39 @@
+---
+id: prompt-audits-project-audit
+description: Perform project audit — best practices, conventions, security, performance, scalability
+author: Himel Das
+---
+
+# Project Audit Prompt
+
+## Goal
+
+Audit the codebase and produce `docs/audits/best-practices/{scope}.md` with findings grouped by category. Each item: Practice | Status (✓ done | Add | Consider) | Notes.
+
+## Scope
+
+**Minimum categories** (add others as relevant): **Testing** (e.g. coverage, isolation, pyramid, markers, parametrization, fixtures); **Code quality** (e.g. types, lint, docstrings); **CI/CD** (e.g. test, lint, coverage gate); **Security** (e.g. secrets, audit, rate limit); **API** (e.g. versioning, pagination, health); **Database** (e.g. migrations, pool, indexes); **Performance** (e.g. eager load, N+1, compression, indexes); **Scalability** (e.g. stateless, pool limits, replicas, background tasks); **Caching** (e.g. response, headers, invalidation); **Observability** (e.g. metrics, tracing, slow query); **Resource** (e.g. timeouts, graceful shutdown).
+
+## Process
+
+1. Scan `app/`, `conftest.py`, `pyproject.toml`, `.pre-commit-config.yaml`, `docs/conventions.md`, `docs/audits/security/`.
+2. For each scope area, list practices; mark ✓ if implemented, Add if missing, Consider if optional.
+3. Add **Suggested Priority** (High / Medium / Low) at end.
+4. Use tables; keep notes ≤1 line per item. Reference `docs/conventions.md` for existing standards.
+
+## Output Format
+
+```markdown
+# {Scope} Audit — {date}
+
+## {Category}
+| Practice | Status | Notes |
+|----------|--------|-------|
+...
+
+## Suggested Priority
+- **High:** ...
+- **Medium:** ...
+- **Low:** ...
+```
+
