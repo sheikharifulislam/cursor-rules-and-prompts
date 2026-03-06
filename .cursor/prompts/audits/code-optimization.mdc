@@ -1,0 +1,84 @@
+---
+id: prompt-audits-code-optimization
+description: Perform project audit — best practices, conventions, security, performance, scalability
+author: Himel Das
+---
+
+# Project Audit Prompt
+
+## Goal
+
+Audit the codebase; produce an optimization audit document (path per user). Includes best practices, conventions, security, performance.
+
+## Scope
+
+**Categories** (add as relevant): Testing; Code quality; CI/CD; Security; API; Database; Performance; Scalability; Caching; Observability; Resource.
+
+## Process
+
+1. Scan the whole codebase.
+2. For each area: list items; mark Status (✅ Done | Pending); assign Priority (High|Medium|Low), Effort (Low|Medium|—), Impact.
+3. Reference project conventions if present.
+
+---
+
+## Output Format
+
+### Summary Table (required)
+
+```markdown
+| # | Area | Priority | Effort | Impact | Status |
+|---|------|----------|--------|--------|--------|
+| 1 | ... | High | Low | ... | ✅ Done |
+| 2 | ... | Medium | — | ... | Pending |
+```
+
+Order: Done first, Pending last. Sequential # (1..n).
+
+### Section Format
+
+Group by category: `## Code Quality`, `## Performance`, `## Security`, `## Database`, etc. Each item: `### N. Title {✅ Implemented|}`.
+
+**Code items** use **Previous** → **Implemented** or **Recommendation**:
+
+```markdown
+### N. Title ✅ Implemented
+
+**Previous:** One-line description of old behavior.
+
+\`\`\`
+# Representative snippet of old code (5–15 lines)
+\`\`\`
+
+**Implemented:** One-line description of new behavior.
+
+\`\`\`
+# Representative snippet of new code (5–15 lines)
+\`\`\`
+
+Optional: 1–2 line note (e.g. "Full course fetched only at end").
+```
+
+**Pending items** use **Current** + **Recommendation**:
+
+```markdown
+### N. Title
+
+**Current:** One-line description.
+
+\`\`\`
+# Snippet showing current state
+\`\`\`
+
+**Recommendation:** One-line actionable suggestion.
+```
+
+**Convention items** (no code change) use **Convention:** or **Current (implemented):** with a short code block.
+
+**Snippets:** Previous/Implemented = 5–15 lines, actual patterns; omit boilerplate; no full-file dumps. Convention = single block, `...` for elision.
+
+## Suggested Priority (optional)
+
+- **High:** ...
+- **Medium:** ...
+- **Low:** ...
