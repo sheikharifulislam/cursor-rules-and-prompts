@@ -1,0 +1,11 @@
+---
+id: rule-python-code-formatting
+alwaysApply: false
+description: Blank lines between logical groups; full words for names; no comments for separation
+author: Himel Das
+globs: "**/*.py"
+---
+
+# Code Formatting
+
+Insert blank lines between logical groups (validation → create → assign → return). Separate fetch, processing, validation, and return blocks. Use blank lines only; do not add comments purely for visual separation. Use full words for variables and identifiers (e.g. `customer`, `order_id`, `item_count`), not abbreviations (`c`, `o`, `n`).
